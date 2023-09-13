@@ -48,6 +48,7 @@ public class BasicSecurityConfig {
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
     @Bean
     SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
