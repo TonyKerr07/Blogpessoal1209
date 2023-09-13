@@ -49,7 +49,7 @@ public class UsuarioController {
 
 	@PostMapping("/logar")
 	public ResponseEntity<UsuarioLogin> autenticarUsuario(@RequestBody Optional<UsuarioLogin> usuarioLogin){
-		System.out.println("LOGAR");
+	
 		return usuarioService.autenticarUsuario(usuarioLogin)
 				.map(resposta -> ResponseEntity.status(HttpStatus.OK).body(resposta))
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
@@ -59,7 +59,6 @@ public class UsuarioController {
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Usuario> postUsuario(@RequestBody @Valid Usuario usuario) {
 
-		System.out.println("cadastrooooooo");
 		return usuarioService.cadastrarUsuario(usuario)
 			.map(resposta -> ResponseEntity.status(HttpStatus.CREATED).body(resposta))
 			.orElse(ResponseEntity.status(HttpStatus.BAD_REQUEST).build());
